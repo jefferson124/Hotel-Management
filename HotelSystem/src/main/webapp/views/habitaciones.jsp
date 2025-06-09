@@ -2,17 +2,17 @@
 <%@ include file="../includes/navbar.jsp" %>
 
 <div class="container mb-5">
-  <h1 class="mb-4 text-primary"><i class="bi bi-door-closed me-2"></i>Gestión de Habitaciones</h1>
+  <h1 class="mb-4 text-primary"><i class="bi bi-door-closed me-2"></i>GestiÃ³n de Habitaciones</h1>
 
   <!-- Formulario de registro -->
   <div class="card mb-4 shadow-sm">
     <div class="card-header bg-primary text-white">
-      Registrar Nueva Habitación
+      Registrar Nueva HabitaciÃ³n
     </div>
     <div class="card-body">
       <form class="row g-3" action="HabitacionController" method="post">
         <div class="col-md-4">
-          <label for="numero" class="form-label">Número</label>
+          <label for="numero" class="form-label">NÃºmero</label>
           <input type="number" id="numero" name="numero" class="form-control" required>
         </div>
 
@@ -42,7 +42,7 @@
 
         <div class="col-12">
           <button type="submit" class="btn btn-success">
-            <i class="bi bi-plus-circle me-1"></i> Registrar Habitación
+            <i class="bi bi-plus-circle me-1"></i> Registrar HabitaciÃ³n
           </button>
         </div>
       </form>
@@ -59,7 +59,7 @@
         <thead class="table-light">
           <tr>
             <th>#</th>
-            <th>Número</th>
+            <th>NÃºmero</th>
             <th>Tipo</th>
             <th>Precio</th>
             <th>Estado</th>
@@ -93,6 +93,7 @@
     </div>
   </div>
 </div>
+
 
 <%@ include file="../includes/footer.jsp" %>
 
