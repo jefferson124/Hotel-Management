@@ -17,10 +17,10 @@
         </div>
         <div class="col-md-4">
           <label for="nombreCliente" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombreCliente" value="Juan Pérez" readonly>
+          <input type="text" class="form-control" id="nombreCliente" value="Juan PÃ©rez" readonly>
         </div>
         <div class="col-md-4">
-          <label for="factura" class="form-label">Factura Nº</label>
+          <label for="factura" class="form-label">Factura NÂº</label>
           <input type="text" class="form-control" id="factura" value="FAC-00123" readonly>
         </div>
 
@@ -28,7 +28,7 @@
           <label class="form-label">Resumen de Consumo</label>
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between">
-              ?? Reserva habitación doble (4 noches)
+              ?? Reserva habitaciÃ³n doble (4 noches)
               <span>S/ 480.00</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
@@ -36,7 +36,7 @@
               <span>S/ 60.00</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
-              ? Lavandería
+              ? LavanderÃ­a
               <span>S/ 30.00</span>
             </li>
             <li class="list-group-item d-flex justify-content-between fw-bold">
@@ -63,7 +63,7 @@
         </div>
 
         <div class="col-md-4">
-          <label for="metodo" class="form-label">Método de Pago</label>
+          <label for="metodo" class="form-label">MÃ©todo de Pago</label>
           <select id="metodo" name="metodo" class="form-select" required>
             <option selected disabled>-- Seleccionar --</option>
             <option value="Efectivo">Efectivo</option>
