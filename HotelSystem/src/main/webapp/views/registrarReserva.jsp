@@ -9,16 +9,16 @@
       <label for="cliente" class="form-label">Cliente</label>
       <select id="cliente" name="cliente" class="form-select" required>
         <option selected disabled>-- Seleccionar cliente --</option>
-        <option value="1">Juan Pérez</option>
-        <option value="2">María Torres</option>
-        <!-- Simulado: estos se llenarían desde base de datos -->
+        <option value="1">Juan P�rez</option>
+        <option value="2">Mar�a Torres</option>
+        <!-- Simulado: estos se llenar�an desde base de datos -->
       </select>
     </div>
 
     <div class="col-md-6">
-      <label for="habitacion" class="form-label">Habitación</label>
+      <label for="habitacion" class="form-label">Habitaci�n</label>
       <select id="habitacion" name="habitacion" class="form-select" required>
-        <option selected disabled>-- Seleccionar habitación --</option>
+        <option selected disabled>-- Seleccionar habitaci�n --</option>
         <option value="101">101 - Simple</option>
         <option value="202">202 - Doble</option>
       </select>
