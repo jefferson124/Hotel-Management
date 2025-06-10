@@ -1,69 +1,125 @@
 <%@ include file="../includes/header.jsp" %>
 <%@ include file="../includes/navbar.jsp" %>
 
-<div class="container mb-5">
-  <h1 class="mb-4 text-primary"><i class="bi bi-bar-chart-line me-2"></i>Reportes</h1>
+<main class="container mt-5">
+  <h1 class="mb-4 text-primary"><i class="bi bi-file-earmark-bar-graph me-2"></i>Reportes</h1>
 
-  <!-- Filtros de b˙squeda -->
-  <div class="card mb-4 shadow-sm">
-    <div class="card-header bg-secondary text-white">
-      Filtros de Reporte
+  <!-- Filtros de fechas -->
+  <form action="ReporteController" method="get" class="row g-3 mb-4">
+    <div class="col-md-3">
+      <label for="fechaInicio" class="form-label">Desde:</label>
+      <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
     </div>
-    <div class="card-body">
-      <form class="row g-3" action="ReporteController" method="get">
-        <div class="col-md-4">
-          <label for="fechaInicio" class="form-label">Desde</label>
-          <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" required>
-        </div>
-        <div class="col-md-4">
-          <label for="fechaFin" class="form-label">Hasta</label>
-          <input type="date" id="fechaFin" name="fechaFin" class="form-control" required>
-        </div>
-        <div class="col-md-4 d-flex align-items-end">
-          <button type="submit" class="btn btn-primary w-100">
-            <i class="bi bi-search me-1"></i> Buscar
-          </button>
-        </div>
-      </form>
+    <div class="col-md-3">
+      <label for="fechaFin" class="form-label">Hasta:</label>
+      <input type="date" class="form-control" id="fechaFin" name="fechaFin" required>
     </div>
-  </div>
+    <div class="col-md-6 d-flex align-items-end gap-2">
+      <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Filtrar</button>
+      <a href="ExportarExcelServlet" class="btn btn-success"><i class="bi bi-file-earmark-excel"></i> Exportar Excel</a>
+      <a href="ExportarPdfServlet" class="btn btn-danger"><i class="bi bi-file-earmark-pdf"></i> Exportar PDF</a>
+    </div>
+  </form>
 
-  <!-- Gr·ficos simulados -->
-  <div class="row g-4 mb-4">
+  <!-- Gr√°ficos -->
+  <div class="row g-4">
+
     <div class="col-md-6">
       <div class="card shadow-sm">
-        <div class="card-header bg-success text-white">
-          Ingresos por DÌa
-        </div>
+        <div class="card-header bg-primary text-white">Ocupaci√≥n semanal</div>
         <div class="card-body">
-          <div class="placeholder-glow" style="height: 250px;">[Gr·fico de barras aquÌ]</div>
+          <canvas id="ocupacionSemanal"></canvas>
         </div>
       </div>
     </div>
 
     <div class="col-md-6">
       <div class="card shadow-sm">
-        <div class="card-header bg-warning text-white">
-          Servicios m·s solicitados
-        </div>
+        <div class="card-header bg-success text-white">Servicios m√°s solicitados</div>
         <div class="card-body">
-          <div class="placeholder-glow" style="height: 250px;">[Gr·fico circular aquÌ]</div>
+          <canvas id="serviciosFrecuentes"></canvas>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Botones para exportar -->
-  <div class="d-flex gap-3">
-    <button class="btn btn-outline-success">
-      <i class="bi bi-file-earmark-excel me-1"></i> Exportar a Excel
-    </button>
-    <button class="btn btn-outline-danger">
-      <i class="bi bi-file-earmark-pdf me-1"></i> Exportar a PDF
-    </button>
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">Reservas por tipo de habitaci√≥n</div>
+        <div class="card-body">
+          <canvas id="usoHabitaciones"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">Ingresos por d√≠a</div>
+        <div class="card-body">
+          <canvas id="ingresosDiarios"></canvas>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</main>
 
 <%@ include file="../includes/footer.jsp" %>
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Ocupaci√≥n semanal
+  new Chart(document.getElementById("ocupacionSemanal"), {
+    type: "bar",
+    data: {
+      labels: ["Lunes", "Martes", "Mi√©rcoles", "Jueves", "Viernes", "S√°bado", "Domingo"],
+      datasets: [{
+        label: "Habitaciones ocupadas",
+        data: [8, 12, 10, 14, 16, 18, 9],
+        backgroundColor: "#0d6efd"
+      }]
+    }
+  });
+
+  // Servicios m√°s solicitados
+  new Chart(document.getElementById("serviciosFrecuentes"), {
+    type: "bar",
+    data: {
+      labels: ["Room Service", "Limpieza", "Mantenimiento", "Lavander√≠a"],
+      datasets: [{
+        label: "Cantidad",
+        data: [30, 20, 12, 6],
+        backgroundColor: "#198754"
+      }]
+    }
+  });
+
+  // Tipos de habitaci√≥n
+  new Chart(document.getElementById("usoHabitaciones"), {
+    type: "doughnut",
+    data: {
+      labels: ["Simple", "Doble", "Suite", "Matrimonial"],
+      datasets: [{
+        label: "Uso",
+        data: [25, 15, 10, 20],
+        backgroundColor: ["#0dcaf0", "#6f42c1", "#fd7e14", "#dc3545"]
+      }]
+    }
+  });
+
+  // Ingresos por d√≠a
+  new Chart(document.getElementById("ingresosDiarios"), {
+    type: "line",
+    data: {
+      labels: ["Lun", "Mar", "Mi√©", "Jue", "Vie", "S√°b", "Dom"],
+      datasets: [{
+        label: "Ingresos (S/)",
+        data: [500, 700, 650, 800, 1000, 1200, 900],
+        fill: false,
+        borderColor: "#ffc107",
+        tension: 0.3
+      }]
+    }
+  });
+</script>
 
