@@ -58,10 +58,11 @@
 
 ## ✍️ Autores
 
--Jefferson Francesco Calderón Ponce
--Dayana Lucero Condori Daza
--Heyner Mamani Kana
--Adrian Fernando Heredia Caceres
+1. Jefferson Francesco Calderón Ponce.
+2. Dayana Lucero Condori Daza.
+3. Heyner Mamani Kana.
+4. Adrian Fernando Heredia Caceres.
+
 Estudiantes de Ingeniería de Sistemas  
 Universidad Tecnológica del Perú (UTP)
 
