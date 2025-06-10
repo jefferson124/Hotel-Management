@@ -56,10 +56,13 @@
 
 ---
 
-## ✍️ Autor
+## ✍️ Autores
 
-Jefferson Calderón Ponce  
-Estudiante de Ingeniería de Sistemas  
+-Jefferson Francesco Calderón Ponce
+-Dayana Lucero Condori Daza
+-Heyner Mamani Kana
+-Adrian Fernando Heredia Caceres
+Estudiantes de Ingeniería de Sistemas  
 Universidad Tecnológica del Perú (UTP)
 
 ---
